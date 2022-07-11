@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script >
+	function check(){
+		let url = "Login2.html";
+		let uname = getCookie("uname");
+		let upass = getCookie("pass");
+		
+		if(uname != null && upass != null){
+			url = "Welcome.html";
+		}
+		document.getElementById("link").innerHTML="<a href='" + url + "'>Click Here</a> to continue...";
+	}
+	
+	function getCookie(cname) {
+		  let name = cname + "=";
+		  let decodedCookie = decodeURIComponent(document.cookie);
+		  let ca = decodedCookie.split(';');
+		  for(let i = 0; i <ca.length; i++) {
+		    let c = ca[i];
+		    while (c.charAt(0) == ' ') {
+		      c = c.substring(1);
+		    }
+		    if (c.indexOf(name) == 0) {
+		      return c.substring(name.length, c.length);
+		    }
+		  }
+		  return null;
+		}
+	
+</script>
+</head>
+<body onload="check()">
+	<h2>HOMEPAGE</h2>
+	<div id="link"></div>
+	
+</body>
+</html>
